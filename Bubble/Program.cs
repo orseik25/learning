@@ -8,7 +8,16 @@ namespace Bubble
         {
             int i=0;
             int j=1;
-            int[] massive = new int [6] {2,1,4,2,445,1};
+            int f=0;
+            int dlinna=0;
+            Console.WriteLine("Введите длинну массива:");
+            dlinna=Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите элементы массива:");
+            int[] massive = new int [dlinna];
+            while (f!=dlinna)
+            {
+                massive[f++]=Convert.ToInt32(Console.ReadLine());
+            }
             while(i!=massive.Length){
                 j=i+1;
                 while(j!=massive.Length){
@@ -26,10 +35,11 @@ namespace Bubble
                                         }
                         i++;
                     }
-            foreach(int vivod in massive)
-            {
-                Console.WriteLine(vivod);
-            }
+                Console.WriteLine("Отсортированнный массив:");
+                foreach(int p in massive)
+                {
+                    Console.WriteLine(p);
+                }
             //Console.WriteLine("Hello World!"); 
         }
     }
