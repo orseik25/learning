@@ -21,11 +21,13 @@ namespace insertionshort
                         {
                             VstavkaVRazriv = i;
                             MestoRazriva = j;
-                            Peremeshenie peremeshenie = new Peremeshenie(arr, ref VstavkaVRazriv, ref MestoRazriva);//Здесь должен быть переход в класс премещение с передачей массива разрыва и вставляемого элемента
+                            Peremeshenie peremeshenie = new Peremeshenie{arr=arr[], VstavkaVRazriv=VstavkaVRazriv, MestoRazriva=MestoRazriva };
+                            peremeshenie.NepPer(arr);//Здесь должен быть переход в класс премещение с передачей массива разрыва и вставляемого элемента
                         }
                     }
                 }
             }
         }//Сюда надо будет добавить вывод массива
     }
+
 }
