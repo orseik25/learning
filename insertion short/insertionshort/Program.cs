@@ -6,28 +6,45 @@ namespace insertionshort
     {
         static void Main(string[] args)
         {
-            int[] arr = { 4, 6, 8, 4, 2 };// Хочу еще добавить сюда ввод с клавы через пробелы
-            int j = 0;
-            int VstavkaVRazriv = 0;
-            int MestoRazriva = 0;
-            foreach (int i in arr)
+            int[] arr = { 4, 6, 8, 4, 2 };// Хочу еще добавить сюда ввод с клавы через пробел
+            for (int i = 2; i <= arr.Length; i++)
             {
-                for(j = i - 1;j != 0; j--)
+                for (int j = i - 1; j >= 0; j--)
                 {
-                    if (arr[j] >= arr[i])
+                    if (arr[i]<=arr[j])
                     {
-                        if (arr[j - 1] >= arr[i]) { }
-                        else
+                        if (arr[i] > arr[j - 1])
                         {
-                            VstavkaVRazriv = i;
-                            MestoRazriva = j;
-                            Peremeshenie peremeshenie = new Peremeshenie{arr=arr[], VstavkaVRazriv=VstavkaVRazriv, MestoRazriva=MestoRazriva };
-                            peremeshenie.NepPer(arr);//Здесь должен быть переход в класс премещение с передачей массива разрыва и вставляемого элемента
+                            Zam(i,j,ref arr);
+                            break;
                         }
                     }
-                }
+                    else
+                    {
+                        break;
+                    }
+                }               
             }
-        }//Сюда надо будет добавить вывод массива
+            foreach(int y in arr)
+            {
+                Console.WriteLine(y);
+            }
+             
+        }
+        static int[] Zam(int i, int j, ref int[] arr)
+        {
+            int vstav = arr[i];
+            int k = i - 1;
+            while (k >= j)
+            {
+                arr[k + 1] = arr[k];
+                k--;
+            }
+            arr[j] = vstav;
+            vstav = 0;
+            return arr;
+        }
     }
-
+    
 }
+
